@@ -1,12 +1,13 @@
 Name:           perl-WWW-Curl
 Version:        4.09
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Perl extension interface for libcurl
 License:        MPLv1.1 or MIT
 Group:          Development/Libraries
 URL:            http://search.cpan.org/dist/WWW-Curl/
 Source0:        http://www.cpan.org/authors/id/S/SZ/SZBALINT/WWW-Curl-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Patch0:         WWW-Curl-4.15-CURLOPT_PRIVATE-is-a-scalar-string.patch
 BuildRequires:  perl >= 1:5.6.1
 BuildRequires:  perl(ExtUtils::MakeMaker)
 BuildRequires:  perl(Test::Base)
@@ -18,7 +19,7 @@ WWW::Curl is a Perl extension interface for libcurl.
 
 %prep
 %setup -q -n WWW-Curl-%{version}
-
+%patch0 -p1
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor OPTIMIZE="$RPM_OPT_FLAGS"
@@ -58,6 +59,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man3/*
 
 %changelog
+* Fri Apr 11 2014 Jitka Plesnikova <jplesnik@redhat.com> - 4.09-4
+- Fix segmentation fault by access to CURLINFO_PRIVATE
+- Resolves: rhbz#984894
+
 * Mon Dec  7 2009 Stepan Kasal <skasal@redhat.com> - 4.09-3
 - rebuild against perl 5.10.1
 
