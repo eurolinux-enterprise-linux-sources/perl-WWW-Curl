@@ -1,6 +1,6 @@
 Name:           perl-WWW-Curl
 Version:        4.15
-Release:        10%{?dist}
+Release:        12%{?dist}
 Summary:        Perl extension interface for libcurl
 License:        MPLv1.1 or MIT
 Group:          Development/Libraries
@@ -67,6 +67,12 @@ make test
 %{_mandir}/man3/*
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 4.15-12
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 4.15-11
+- Mass rebuild 2013-12-27
+
 * Sun Jul 14 2013 Jitka Plesnikova <jplesnik@redhat.com> - 4.15-10
 - Update dependencies
 - Use DESTDIR rather than PERL_INSTALL_ROOT
