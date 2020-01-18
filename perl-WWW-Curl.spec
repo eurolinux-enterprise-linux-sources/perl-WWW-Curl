@@ -1,6 +1,6 @@
 Name:           perl-WWW-Curl
 Version:        4.15
-Release:        12%{?dist}
+Release:        13%{?dist}
 Summary:        Perl extension interface for libcurl
 License:        MPLv1.1 or MIT
 Group:          Development/Libraries
@@ -67,6 +67,9 @@ make test
 %{_mandir}/man3/*
 
 %changelog
+* Wed Apr 26 2017 Jitka Plesnikova <jplesnik@redhat.com> - 4.15-13
+- Rebuild to fetch the symbol from curl for TLS > 1.0 (bug #1445309)
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 4.15-12
 - Mass rebuild 2014-01-24
 
